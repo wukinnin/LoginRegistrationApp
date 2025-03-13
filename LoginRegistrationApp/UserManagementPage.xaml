@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginRegistrationApp.UserManagementPage">
+    <StackLayout Padding="20">
+        <CollectionView x:Name="UsersCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" Margin="0,5">
+                        <Grid ColumnDefinitions="*,Auto,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Username}" FontAttributes="Bold" />
+                                <Label Text="{Binding Email}" FontSize="Small" />
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1" Text="Edit" Clicked="OnEditClicked" />
+                            <Button Grid.Column="2" Text="Delete" Clicked="OnDeleteClicked" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add New User" Clicked="OnAddNewUserClicked" Margin="0,10" />
+    </StackLayout>
+</ContentPage>
